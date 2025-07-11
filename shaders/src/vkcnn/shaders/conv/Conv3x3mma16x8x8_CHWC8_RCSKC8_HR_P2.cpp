@@ -7,7 +7,7 @@ namespace vkcnn::shaders {
 
 Conv3x3mma16x8x8_CHWC8_RCSKC8_HR_P2::Conv3x3mma16x8x8_CHWC8_RCSKC8_HR_P2()
     : m_source(vkcnn::readFile("./shaders/src/vkcnn/shaders/conv/"
-                               "conv3x3mma16x8x8f16_CHWC8_RSCKC8_HR_P2.comp")) {
+                               "conv3x3mma16x8x8f16_CHWC8_RCSKC8_HR_P2.comp")) {
 }
 
 bool Conv3x3mma16x8x8_CHWC8_RCSKC8_HR_P2::supports(const OpConv &op) const {
@@ -40,7 +40,7 @@ ConvShaderSource
 Conv3x3mma16x8x8_CHWC8_RCSKC8_HR_P2::do_specialize(const OpConv &op) const {
   std::vector<std::byte> src{m_source.size() * sizeof(std::string::value_type)};
   std::memcpy(src.data(), m_source.data(), src.size());
-  std::uint32_t specConstants[] = {op.filterShape.c, op.filterShape.k};
+  std::uint32_t specConstants[2] = {op.filterShape.c, op.filterShape.k};
   return ConvShaderSource(std::move(src), ShaderLang::GLSL,
                           SpecializationConstants{specConstants}, {},
                           glm::uvec2(16, 8), op.inputLayout, op.inputType,
