@@ -1,3 +1,0 @@
-/home/kistenklaus/Documents/kit/hiwi/vkcnn/builddir/CMakeFiles/MyTorchApp.dir
-/home/kistenklaus/Documents/kit/hiwi/vkcnn/builddir/CMakeFiles/edit_cache.dir
-/home/kistenklaus/Documents/kit/hiwi/vkcnn/builddir/CMakeFiles/rebuild_cache.dir
